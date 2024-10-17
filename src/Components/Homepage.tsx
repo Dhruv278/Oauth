@@ -26,7 +26,7 @@ const Homepage = () => {
     }
 
     useEffect(()=>{
-        if(session && !isSlackParams){
+        if(session ){
             getGithubJWTtoken();
         }
     },[session])
@@ -93,10 +93,10 @@ const Homepage = () => {
        window.location.href=`https://auth.atlassian.com/authorize?audience=api.atlassian.com&client_id=irPbpJVFMkva6rRZsf4RvoAcZk0V4iFc&scope=read%3Ame%20read%3Aaccount%20manage%3Ajira-project%20read%3Ajira-work%20read%3Ajira-user%20write%3Ajira-work&redirect_uri=https%3A%2F%2Fmain.d2luqupuks4wls.amplifyapp.com%2F&state=${randomNum}&response_type=code&prompt=consent`
     }
 
-    const handleClickSlack=()=>{
-      setIsSlack(true);
-      signIn("slack",{callbackUrl:"https://455b-116-73-217-138.ngrok-free.app/?isSlack=true"});
-    }
+    // const handleClickSlack=()=>{
+    //   setIsSlack(true);
+    //   signIn("slack",{callbackUrl:"https://455b-116-73-217-138.ngrok-free.app/?isSlack=true"});
+    // }
   return (
     <Container>
       {loading ? <div>loading</div>:<>
@@ -104,7 +104,7 @@ const Homepage = () => {
       <ButtonContainer >
         <Button onClick={()=>handleClickGitGub()}>Connect Github</Button>
         <Button onClick={()=>handleClickJira()} style={{marginTop:"30px"}}>Connect Jira</Button>
-        <Button onClick={()=>handleClickSlack()} style={{marginTop:"30px"}}>Connect Slack</Button>
+        {/* <Button onClick={()=>handleClickSlack()} style={{marginTop:"30px"}}>Connect Slack</Button> */}
       </ButtonContainer>
       <SubText>Designed by Dhruv Gopani</SubText>
       </>}

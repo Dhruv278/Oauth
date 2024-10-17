@@ -12,17 +12,7 @@ export const authConfig: NextAuthOptions = {
               scope: "repo user", // request repo and user scope
             },
           },
-        }),
-        SlackProvider({
-          clientId: process.env.SLACK_CLIENT_ID as string,
-          clientSecret: process.env.SLACK_CLIENT_SECRET as string,
-          // Optional: Specify the scopes your app needs
-          authorization: {
-            params: {
-              scope: 'identity.basic,identity.email', // Adjust scopes as needed
-            },
-          },
-        }),
+        })
       ],
       callbacks: {
         async jwt({ token, account }) {
