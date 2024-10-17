@@ -123,7 +123,6 @@ const handleSignOut=()=>{
 
                                 })
                                 if(selectedrepo.length>0){
-                                    console.log(selectedrepo)
                                     setSelectedRepo(selectedrepo[0]);
                                 }
                             }}

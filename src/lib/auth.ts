@@ -31,7 +31,7 @@ export const authConfig: NextAuthOptions = {
           }
           return token;
         },
-        async session({ session, token }) {
+        async session({ session, token }:{session:any,token:any}) {
           session.accessToken = token.accessToken; // Add accessToken to session
           return session;
         },
