@@ -90,7 +90,7 @@ const Homepage = () => {
   }
     const handleClickJira=()=>{
       let randomNum=Math.random()*10000;
-       window.location.href=`https://auth.atlassian.com/authorize?audience=api.atlassian.com&client_id=Z6enUJsCIXd9fZ62sBZnkubJwVZ5iqHB&scope=read%3Ame%20read%3Aaccount%20read%3Ajira-work%20manage%3Ajira-project%20read%3Ajira-user%20write%3Ajira-work&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2F&state=${randomNum}&response_type=code&prompt=consent`
+       window.location.href=`https://auth.atlassian.com/authorize?audience=api.atlassian.com&client_id=irPbpJVFMkva6rRZsf4RvoAcZk0V4iFc&scope=read%3Ame%20read%3Aaccount%20manage%3Ajira-project%20read%3Ajira-work%20read%3Ajira-user%20write%3Ajira-work&redirect_uri=https%3A%2F%2Fmain.d2luqupuks4wls.amplifyapp.com%2F&state=${randomNum}&response_type=code&prompt=consent`
     }
 
     const handleClickSlack=()=>{
