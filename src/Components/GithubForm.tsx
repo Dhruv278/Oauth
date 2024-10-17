@@ -97,11 +97,9 @@ const GithubForm = () => {
         }
     };
 const handleSignOut=()=>{
-    alert( "Invalid credential please login again.")
     localStorage.removeItem("githubToken");
     localStorage.removeItem("jiraToken");
     signOut();
-    router.push("/");
 }
     return (
         <Container>

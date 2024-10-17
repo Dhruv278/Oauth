@@ -2,10 +2,11 @@ import { NextResponse } from "next/server";
 import jwt from 'jsonwebtoken'
 import {fetchJiraProjects} from '@/lib/jira'
 
-export async function GET(request: Request) {
+export async function POST(request: Request) {
     try {
         // Get the token from the request headers
-        const token = request.headers.get('authorization')?.split(' ')[1];
+        const body= await request.json();
+        const {token} = body;
 
         if (!token) {
             return NextResponse.json({ error: 'Token not provided' }, { status: 401 });

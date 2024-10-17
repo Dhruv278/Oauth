@@ -24,11 +24,7 @@ const JiraForm = () => {
     useEffect(()=>{
         let token=localStorage.getItem("jiraToken");
         if(token){
-            fetch("/api/jira/getData",{
-                headers:{
-                    Authorization:`Bearer ${token}`
-                }
-            }).then(res=>res.json()).then((data)=>{
+            getJiraData(token).then(res=>res.json()).then((data)=>{
                 console.log(data);
                 setUserData({
                     email:data.email,
@@ -43,6 +39,14 @@ const JiraForm = () => {
 
     },[])
 
+    const getJiraData=async(token:string)=>{
+       let res= await fetch("/api/jira/getData",{
+           method:"POST",
+           body:JSON.stringify({token})
+        });
+        return res.json();
+
+    }
     const handleSignOut=()=>{
         localStorage.removeItem("jiraToken");
         localStorage.removeItem("githubToken");
