@@ -6,9 +6,7 @@ import { Select, Input, Form } from "antd";
 import GithubPNG from '@/public/githubIcon.png'
 import styled, { keyframes } from "styled-components";
 import Image from "next/image";
-import { showErrorToast, showSuccessToast } from "@/lib/Toast";
 import { signOut } from "next-auth/react";
-import { toast } from "react-toastify";
 
 const { Option } = Select;
 
@@ -62,7 +60,7 @@ const GithubForm = () => {
             }else if(res.status==403){
                 handleSignOut();
             }else{
-                showErrorToast( "Something went wrong please try again!") 
+                alert( "Something went wrong please try again!") 
             };
         }catch(error){
             console.log("hello error",error)
@@ -99,7 +97,7 @@ const GithubForm = () => {
         }
     };
 const handleSignOut=()=>{
-    showErrorToast( "Invalid credential please login again.")
+    alert( "Invalid credential please login again.")
     localStorage.removeItem("githubToken");
     localStorage.removeItem("jiraToken");
     signOut();
